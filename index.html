@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rory MacLysaght">
+    <meta name="description" content="Generate random passphrase. Even though phrases are nonsense, they are memorable because grammatically correct, so easy for humans to remember, but hard for computers to guess. Inspired by XKCD.">
+    <title>Random Passphrase Generator</title>
+    <link href="css/pass_gen.css" rel="stylesheet" type="text/css">
+    <script src="js/pass_gen.js" type="text/javascript"></script>
+    <script src="js/passwordStrength.js" type="text/javascript"></script>
+  </head>
+  <body>
+<div id="wrapper">
+	<a href="https://xkcd.com/936/" target="_blank"><img src="https://imgs.xkcd.com/comics/password_strength.png" alt="XKCD Comic" style="width:50%;float:right;margin-left:5px;margin-bottom:10px;"></a>
+	
+<h1>Random Passphrase Generator</h1>
+<p>Generate a random passphrase consisting of 'AdjectiveAdjectiveNoun'. Even though the phrases are nonsense, they should be memorable because they're grammatically correct, making them easy for humans to remember, but hard for computers to guess. Inspired by <a href="https://xkcd.com/936/" target="_blank">XKCD</a>.</p>
+
+	
+<p><strong>Couldn't I just make one up myself?</strong> Yes you could, but you are more likely to use easy, well-known words, potentially weakening the passphrase.  This generator randomly picks from a list of words with no pre-conceptions or bias, so the resulting passphrase is potentially more secure.</p>
+
+<p>Possible passphrases: 5,359,375 - more if using numbers/special chars (see <a href="https://en.wikipedia.org/wiki/Rule_of_product">Rule of Product</a>).</p>
+
+<br style="clear:both">
+<button onclick="getRandomString()" class="btn">Click Here to generate a Random Passphrase</button>
+
+<form action="#">
+<div class="switch"><input id="num" type="checkbox" class="switch-input"><label for="num" class="switch-label"></label></div> Use Numbers
+<br>
+<div class="switch"><input id="char" type="checkbox" class="switch-input"><label for="char" class="switch-label"></label></div> Use Special Chars
+
+<p>
+It's recommended to use both Numbers and Special Characters (if your application allows these).
+</p>
+</form>
+
+<h2><span id="passphrase"></span></h2>
+
+<table>
+  <tr>
+    <td>Min Passphrase Length: 15</td><td rowspan="3">Minimum Charset Size: 52<br>
+    &nbsp; &nbsp; - with Numbers: 62<br>
+    &nbsp; &nbsp; - with Special Characters: 78</td>
+  </tr>
+  <tr>
+    <td>Max Passphrase Length: 42</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td>This Passphrase Length: <span id="passLength"></span></td>
+    <td><a href="https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength" target="_blank">XKCD Entropy Bits</a>: <span id="xkcd"></span></td>
+  </tr>
+</table>
+
+<div id="pwdStrengthMeterBox">
+      <span id="pwd_head"></span>
+  <!-- pwd_bar is where the colored strength bar appears -->
+      <div id="pwd_bar"></div>
+
+      <!-- pwd_meter is where the strength word appears, like "weak" -->
+      <span id="pwd_meter"></span>
+
+      <!-- pwd_log is the section that debug information appears if you set DEBUG=1 above -->
+      <span id="pwd_log"></span>
+</div>
+
+<p>Password Strength and Entropy:
+To check how theoretically strong your passphrase is, use this checker:
+<a href ="http://rumkin.com/tools/password/passchk.php" target="_blank">Password Strength Test</a>
+</p>
+<p>Image courtesy of <a href="https://xkcd.com/936/" target="_blank">XKCD</a>. Used by permission.</p>
+</div>
+<div class="copyright">
+<img src="../images/logo-top.jpg" alt="Silvertype" width="30"> Hosted by <a href="/">Silvertype</a>
+</div>
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-322099-9";
+urchinTracker();
+</script>
+  </body>
+</html>
